@@ -1,0 +1,172 @@
+---
+// src/components/Gracias.astro
+const mensaje = "¡Gracias por confirmar tu asistencia!<br>Tu presencia hará este día aún más especial.";
+---
+
+<section class="thank-you-container">
+  <div class="thank-you-card">
+    <div class="photo-frame">
+      <img 
+        src="/images/photo1.jpg" 
+        alt="Milagros XV Años" 
+        class="thank-you-photo"
+        loading="eager"
+      />
+      <div class="photo-overlay"></div>
+    </div>
+    
+    <div class="message-box">
+      <h2 class="thank-you-title">¡Confirmación Recibida!</h2>
+      <div class="thank-you-message" set:html={mensaje} />
+      
+      <div class="signature">
+        <p>Con cariño,</p>
+        <p class="name">Milagros</p>
+      </div>
+      
+      <a href="/" class="return-button">Volver a la invitación</a>
+    </div>
+    
+    <div class="floral-decoration"></div>
+  </div>
+</section>
+
+<style>
+  .thank-you-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-block-size: 100vh;
+    padding: 2rem;
+    background: linear-gradient(135deg, #f0f8ff 0%, #e6f2ff 100%);
+  }
+
+  .thank-you-card {
+    position: relative;
+    max-inline-size: 800px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(54, 105, 210, 0.15);
+  }
+
+  .photo-frame {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .thank-you-photo {
+    inline-size: 100%;
+    block-size: auto;
+    object-fit: cover;
+    display: block;
+  }
+
+  .photo-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(54, 105, 210, 0.1) 0%, rgba(54, 80, 210, 0.3) 100%);
+  }
+
+  .message-box {
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .thank-you-title {
+    color: #3a7bbf;
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    margin-block-end: 1.5rem;
+    position: relative;
+  }
+
+  .thank-you-title::after {
+    content: '';
+    position: absolute;
+    inset-block-end: -10px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(to right, #2c3eaa, #a5c8e9);
+  }
+
+  .thank-you-message {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    line-height: 1.6;
+    color: #555;
+    margin-block-end: 2rem;
+  }
+
+  .signature {
+    margin-block-start: auto;
+    font-style: italic;
+    color: #888;
+  }
+
+  .name {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.8rem;
+    color: #4a5fc1;
+    margin-block-start: 0.5rem;
+  }
+
+  .return-button {
+    display: inline-block;
+    margin-block-start: 2rem;
+    padding: 0.8rem 1.5rem;
+    background: #4a5fc1;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-align: center;
+  }
+
+  .return-button:hover {
+    background: #3a4fa1;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(54, 105, 210, 0.3);
+  }
+
+  .floral-decoration {
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    width: 150px;
+    height: 150px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M30,10 Q40,5 50,10 Q60,5 70,10 Q80,15 75,30 Q85,25 85,40 Q90,50 85,60 Q85,75 70,70 Q80,85 50,90 Q20,85 30,70 Q15,75 15,60 Q10,50 15,40 Q15,25 30,30 Z" fill="%233669d2" opacity="0.1"/></svg>');
+    background-repeat: no-repeat;
+    z-index: 0;
+  }
+
+  @media (max-width: 768px) {
+    .thank-you-card {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .photo-frame {
+      width: 100%;
+      max-height: 300px;
+    }
+
+    .thank-you-photo {
+      width: 100%;
+      height: auto;
+    }
+
+    .message-box {
+      padding: 2rem;
+    }
+  }
+</style>

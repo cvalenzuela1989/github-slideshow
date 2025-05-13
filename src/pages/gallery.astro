@@ -1,0 +1,9 @@
+---
+// src/components/Gallery.astro
+const images = []; // Asegúrate de que los datos existan
+---
+<div>
+  {images.map((image) => (
+    <img src={image.url} alt={image.alt} />
+  ))}
+</div>

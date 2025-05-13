@@ -1,0 +1,21 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Header from '../components/Header.astro';
+import ThankYouMessage from '../components/ThankYouMessage.astro';
+import DaysCounter from '../components/DaysCounter.astro';
+import ConfirmationForm from '../components/ConfirmationForm.astro';
+import PhotoGrid from '../components/PhotoGrid.astro';
+import Gallery from '../components/Gallery.astro';
+import EventMap from '../components/EventMap.astro';
+---
+
+<MainLayout title="La Fiesta de Milagros - XV Años" favicon="./images//gallery/favicon.png">
+    
+  <DaysCounter />
+  <Header title="Con todo cariño:" />
+  <ThankYouMessage />
+  <PhotoGrid />
+  <EventMap title="Ubicación del evento" />
+  <ConfirmationForm />
+  <Gallery title="Aquí podrás ver fotos de mi gran día"/>
+</MainLayout>

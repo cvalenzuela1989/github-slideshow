@@ -1,0 +1,67 @@
+/* Estilos base */
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  color: #4a6b8a; /* Azul grisáceo en lugar de #333 */
+  max-inline-size: 100%;
+  overflow-x: hidden;
+  background-color: #f5fcff; /* Azul muy claro en lugar de rosado */
+}
+
+section {
+  padding: 2rem 1rem;
+  margin: 0 auto;
+  max-inline-size: 800px;
+}
+
+h1, h2, h3 {
+  color: #4682b4; /* Steel blue en lugar de rosado */
+  text-align: center;
+}
+
+/* Foto grid vertical */
+.photo-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.photo-grid img {
+  inline-size: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(135, 206, 235, 0.2); /* Sombra azul claro */
+  border: 1px solid #e1f5fe; /* Borde muy sutil azul claro */
+}
+
+/* Media queries para tablets */
+@media (min-width: 600px) {
+  section {
+    padding: 2rem;
+  }
+}
+
+/* Efectos especiales */
+.submit-button {
+  transition: all 0.3s ease;
+  background-color: #87ceeb; /* Sky blue */
+}
+
+.submit-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(64, 164, 223, 0.3); /* Sombra azul */
+}
+
+/* Agregué estos estilos adicionales para mantener coherencia */
+a {
+  color: #5aa2d1; /* Azul medio */
+}
+
+a:hover {
+  color: #3a7ca5; /* Azul más oscuro */
+}
+
+::selection {
+  background: #b0e0e6; /* Powder blue */
+  color: #fff;
+}

@@ -1,0 +1,139 @@
+---
+// src/pages/gallery.astro
+const images = [
+  '/images/gallery/photo1.jpg',
+  '/images/gallery/photo2.jpg',
+  '/images/gallery/photo3.jpg',
+ 
+  // ...
+];
+---
+
+<main class="gallery-page">
+  <h1 class="magic-title">
+    <span class="magic-text">Aquí podrás ver fotos de mi gran día</span>
+    <span class="magic-gradient"></span>
+  </h1>
+
+  <div class="gallery">
+    {images.map((image, index) => (
+      <div class="gallery-item" key={index}>
+        <img 
+          src={image} 
+          alt={`Foto ${index + 1}`} 
+          width="400"
+          height="300"
+          loading="lazy"
+        />
+      </div>
+    ))}
+  </div>
+</main>
+
+<style>
+  .gallery-page {
+    max-inline-size: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    background: rgba(240, 248, 255, 0.3); /* Fondo azul alice muy suave */
+    border-radius: 20px;
+  }
+
+  .magic-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-block-end: 2.5rem;
+    position: relative;
+    font-weight: 700;
+    font-family: 'Playfair Display', serif;
+    color: #4682B4; /* Azul acero */
+    padding: 1rem;
+  }
+
+  .magic-text {
+    position: relative;
+    z-index: 2;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+
+  .magic-gradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      45deg,
+      #E6F7FF 0%,    /* Azul claro */
+      #B0E0E6 20%,   /* Azul polvo */
+      #87CEEB 40%,   /* Azul cielo */
+      #ADD8E6 60%,   /* Azul claro */
+      #5AA2D1 80%,   /* Azul medio */
+      #4682B4 100%   /* Azul acero */
+    );
+    background-size: 300% 300%;
+    animation: gradient 8s ease infinite;
+    z-index: 1;
+    filter: blur(8px);
+    opacity: 0.7;
+    border-radius: 20px;
+    transform: scale(1.05);
+  }
+
+  @keyframes gradient {
+    0% { background-position: 0% 50% }
+    50% { background-position: 100% 50% }
+    100% { background-position: 0% 50% }
+  }
+
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+
+  .gallery-item {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(135, 206, 235, 0.2); /* Sombra azul */
+    transition: all 0.3s ease;
+    position: relative;
+    border: 1px solid #E6F7FF; /* Borde azul claro */
+  }
+
+  .gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(70, 130, 180, 0.3); /* Sombra azul acero */
+  }
+
+  .gallery-item::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(176, 224, 230, 0.1) 0%,  /* Azul polvo */
+      rgba(70, 130, 180, 0.2) 100%   /* Azul acero */
+    );
+    z-index: 1;
+  }
+
+  .gallery-item img {
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .gallery-item:hover img {
+    transform: scale(1.05);
+  }
+
+  @media (max-inline-size: 768px) {
+    .magic-title {
+      font-size: 2rem;
+    }
+    
+    .gallery {
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+  }
+</style>

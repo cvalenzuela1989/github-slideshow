@@ -1,0 +1,179 @@
+---
+// src/components/ThankYouMessage.astro
+---
+
+<section class="thank-you-section">
+  <div class="thank-you-card">
+    <div class="thank-you-content">
+      <h2 class="thank-you-title">Con todo mi corazón</h2>
+      
+      <div class="thank-you-text">
+        <p class="thank-you-paragraph">
+          <span class="drop-cap">A</span>gradezco a Dios por cada bendición en mi vida y a mis padres por hacer realidad este sueño.
+        </p>
+        
+        <p class="thank-you-paragraph">
+          A partir de hoy, comienzan nuevos caminos por recorrer y nuevas etapas en mi vida.
+        </p>
+        
+        <p class="thank-you-paragraph">
+          Este día tan anhelado ha llegado, y hoy quiero compartirlo con ustedes para hacerlo inolvidable.
+        </p>
+      </div>
+      
+      <div class="signature">
+        <p>Con cariño,</p>
+        <div class="name">Milagros</div>
+      </div>
+    </div>
+    
+    <div class="floral-decoration">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="floral-svg">
+        <path d="M50,10 C60,20 70,25 80,20 C90,15 85,30 75,35 C85,40 90,55 80,60 C70,65 60,60 50,50 C40,60 30,65 20,60 C10,55 15,40 25,35 C15,30 10,15 20,20 C30,25 40,20 50,10 Z" fill="none" stroke="#87CEEB" stroke-width="2"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<style>
+  .thank-you-section {
+    padding: 3rem 1rem;
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(to bottom, #F0F8FF 0%, #FFFFFF 100%);
+  }
+
+  .thank-you-card {
+    max-width: 700px;
+    background: #F8FDFF;
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(135, 206, 235, 0.1);
+    position: relative;
+    border: 1px solid #E6F7FF;
+  }
+
+  .thank-you-title {
+    font-family: 'Playfair Display', serif;
+    color: #4682B4;
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+  }
+
+  .thank-you-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #87CEFA, transparent);
+  }
+
+  .thank-you-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #5F7D8B;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .thank-you-paragraph {
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding: 0 1rem;
+  }
+
+  .drop-cap {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #4682B4;
+    line-height: 1;
+    margin-inline-end: 5px;
+    float: inline-start;
+  }
+
+  .signature {
+    text-align: center;
+    margin-block-start: 2rem;
+    font-style: italic;
+    color: #7A9CC6;
+  }
+
+  .floral-decoration {
+    position: absolute;
+    inset-block-start: -20px;
+    inset-inline-end: -20px;
+    inline-size: 80px;
+    block-size: 80px;
+    opacity: 0.7;
+  }
+
+  @media (min-inline-size: 768px) {
+    .thank-you-card {
+      padding: 3.5rem;
+    }
+    
+    .thank-you-text {
+      font-size: 1.3rem;
+    }
+    
+    .thank-you-title {
+      font-size: 2.5rem;
+    }
+  }
+
+  .signature-container {
+    margin-block-start: 1.5rem;
+    padding-block-start: 1rem;
+    border-block-start: 1px solid rgba(173, 216, 230, 0.3);
+  }
+  
+  .con-cariño {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #5F7D8B;
+    font-style: italic;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+  
+  .name {
+    font-size: 2.2rem;
+    font-family: 'Brush Script MT', cursive;
+    font-style: italic;
+    font-weight: normal;
+    background: linear-gradient(to right, #E6F7FF, #B0E0E6, #87CEEB, #ADD8E6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin: 0.2rem 0;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3);
+  }
+
+  @media (min-inline-size: 768px) {
+    .name {
+      font-size: 2.8rem;
+    }
+    .con-cariño {
+      font-size: 1.3rem;
+    }
+  }
+</style>
+
+<script>
+  // Opcional: Efecto de aparición
+  if (typeof window !== 'undefined') {
+    const thankYouCard = document.querySelector('.thank-you-card');
+    if (thankYouCard) {
+      thankYouCard.style.opacity = '0';
+      setTimeout(() => {
+        thankYouCard.style.transition = 'opacity 1s ease';
+        thankYouCard.style.opacity = '1';
+      }, 300);
+    }
+  }
+</script>
