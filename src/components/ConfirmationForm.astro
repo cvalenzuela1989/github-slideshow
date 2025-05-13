@@ -19,64 +19,82 @@ const eventInfo = {
   </div>
 
   <div class="confirmation-header">
-  <h2 class="confirmation-title">Confirmar Asistencia</h2>
-  <div class="deadline-badge">
-    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
-      <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-      <line x1="16" y1="2" x2="16" y2="6"></line>
-      <line x1="8" y1="2" x2="8" y2="6"></line>
-      <line x1="3" y1="10" x2="21" y2="10"></line>
-    </svg>
-    <span>Confirma antes del 20 de mayo</span>
-  </div>
-</div>
-  
-<form name="contacto" method="POST" data-netlify="true" action="/gracias" class="confirmation-form">
-  <input type="hidden" name="form-name" value="contacto">
-  <input type="hidden" name="_subject" value="Confirmación para XV de Milagros">
-  
-  <div class="form-group">
-    <label for="name">Nombre completo</label>
-    <input type="text" id="name" name="name" required placeholder="Ej: María González">
-  </div>
-
-  <div class="form-group">
-    <label>¿Asistirás?</label>
-    <div class="radio-group">
-      <label class="radio-option">
-        <input type="radio" name="attendance" value="Sí" required> 
-        <span>Sí, con mucho gusto</span>
-      </label>
-      <label class="radio-option">
-        <input type="radio" name="attendance" value="No"> 
-        <span>No podré asistir</span>
-      </label>
+    <h2 class="confirmation-title">Confirmar Asistencia</h2>
+    <div class="deadline-badge">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
+        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+        <line x1="16" y1="2" x2="16" y2="6"></line>
+        <line x1="8" y1="2" x2="8" y2="6"></line>
+        <line x1="3" y1="10" x2="21" y2="10"></line>
+      </svg>
+      <span>Confirma antes del 20 de mayo</span>
     </div>
   </div>
+  
+  <form action={formAction} method="POST" class="confirmation-form">
+    <!-- Campos ocultos para FormSubmit -->
+    <input type="hidden" name="_next" value="https://soymilayteinvitoamisxv.netlify.app/gracias">
+    <input type="hidden" name="_subject" value="Confirmación XV Años - Nuevo RSVP">
+    <input type="hidden" name="_template" value="table">
+    <input type="text" name="_honey" style="display:none"> <!-- Campo honeypot para spam -->
+    
+    <div class="form-group">
+      <label for="name">Nombre completo</label>
+      <input type="text" id="name" name="Nombre" required placeholder="Ej: María González">
+    </div>
 
-  <div class="form-group">
-    <label for="guests">Número de invitados</label>
-    <select id="guests" name="invitados">
-      <option value="1 persona">1 persona</option>
-      <option value="2 personas" selected>2 personas</option>
-    </select>
-  </div>
+    <div class="form-group">
+      <label>¿Asistirás?</label>
+      <div class="radio-group">
+        <label class="radio-option">
+          <input type="radio" name="Asistencia" value="Sí" required> 
+          <span>Sí, con mucho gusto</span>
+        </label>
+        <label class="radio-option">
+          <input type="radio" name="Asistencia" value="No"> 
+          <span>No podré asistir</span>
+        </label>
+      </div>
+    </div>
 
-  <button type="submit" class="submit-button">Enviar Confirmación</button>
-</form>
+    <div class="form-group">
+      <label for="guests">Número de invitados</label>
+      <select id="guests" name="Invitados">
+        <option value="1 persona">1 persona</option>
+        <option value="2 personas" selected>2 personas</option>
+        <option value="3 personas">3 personas</option>
+        <option value="Familia completa">Familia completa</option>
+      </select>
+    </div>
 
+    <div class="form-group">
+      <label for="message">Mensaje especial (opcional)</label>
+      <textarea id="message" name="Mensaje" placeholder="Escribe un mensaje si lo deseas..."></textarea>
+    </div>
+
+    <button type="submit" class="submit-button">Enviar Confirmación</button>
+  </form>
 </section>
 
 <style>
+  .confirmation-section {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(70, 130, 180, 0.1);
+  }
+
   .confirmation-header {
     text-align: center;
-    margin-block-end: 1.5rem;
+    margin-bottom: 1.5rem;
   }
   
   .confirmation-title {
     font-size: 1.8rem;
-    color: #4682B4; /* Azul acero */
-    margin-block-end: 0.5rem;
+    color: #4682B4;
+    margin-bottom: 0.5rem;
     font-weight: 600;
     letter-spacing: 0.5px;
     position: relative;
@@ -86,11 +104,11 @@ const eventInfo = {
   .confirmation-title:after {
     content: '';
     position: absolute;
-    inline-size: 50%;
-    block-size: 3px;
-    background: linear-gradient(to right, #B0E0E6, #4682B4); /* Azul polvo a azul acero */
-    inset-block-end: -8px;
-    inset-inline-start: 25%;
+    width: 50%;
+    height: 3px;
+    background: linear-gradient(to right, #B0E0E6, #4682B4);
+    bottom: -8px;
+    left: 25%;
     border-radius: 3px;
   }
   
@@ -98,45 +116,34 @@ const eventInfo = {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background-color: #E6F7FF; /* Azul claro */
+    background-color: #E6F7FF;
     padding: 0.5rem 1rem;
     border-radius: 20px;
     font-size: 0.9rem;
-    color: #4682B4; /* Azul acero */
-    border: 1px solid #ADD8E6; /* Azul claro */
+    color: #4682B4;
+    border: 1px solid #ADD8E6;
   }
   
   .deadline-badge svg {
-    inline-size: 14px;
-    block-size: 14px;
-    fill: #4682B4; /* Azul acero */
-  }
-  
-  @media (min-inline-size: 768px) {
-    .confirmation-title {
-      font-size: 2rem;
-    }
-    
-    .deadline-badge {
-      font-size: 1rem;
-    }
+    width: 14px;
+    height: 14px;
   }
 
   .event-card {
     display: flex;
     align-items: center;
     gap: 1rem;
-    background: linear-gradient(135deg, #F0F8FF 0%, #E6F7FF 100%); /* Degradado azul claro */
+    background: linear-gradient(135deg, #F0F8FF 0%, #E6F7FF 100%);
     padding: 1rem;
     border-radius: 12px;
-    margin-block-end: 1.5rem;
-    border-inline-start: 4px solid #87CEEB; /* Azul cielo */
+    margin-bottom: 1.5rem;
+    border-left: 4px solid #87CEEB;
     box-shadow: 0 2px 8px rgba(135, 206, 235, 0.1);
   }
 
   .event-icon {
     font-size: 1.8rem;
-    color: #4682B4; /* Azul acero */
+    color: #4682B4;
   }
 
   .event-details {
@@ -146,40 +153,39 @@ const eventInfo = {
   .event-details p {
     margin: 0.3rem 0;
     font-size: 0.95rem;
-    color: #5F7D8B; /* Azul grisáceo */
+    color: #5F7D8B;
   }
 
   .dress-code {
-    color: #5AA2D1; /* Azul medio */
+    color: #5AA2D1;
     font-weight: 500;
   }
 
-  .deadline {
-    color: #4682B4; /* Azul acero */
-    font-size: 0.9rem;
-    margin-block-start: -0.5rem;
-    margin-block-end: 1.5rem;
-  }
-
   .form-group {
-    margin-block-end: 1.2rem;
+    margin-bottom: 1.2rem;
   }
 
   label {
     display: block;
-    margin-block-end: 0.5rem;
+    margin-bottom: 0.5rem;
     font-weight: 500;
-    color: #5F7D8B; /* Azul grisáceo */
+    color: #5F7D8B;
   }
 
   input[type="text"],
-  select {
-    inline-size: 100%;
+  select,
+  textarea {
+    width: 100%;
     padding: 0.8rem;
-    border: 1px solid #E6F7FF; /* Azul muy claro */
+    border: 1px solid #E6F7FF;
     border-radius: 8px;
     font-size: 1rem;
-    background-color: #F8FDFF; /* Azul claro */
+    background-color: #F8FDFF;
+  }
+
+  textarea {
+    min-height: 100px;
+    resize: vertical;
   }
 
   .radio-group {
@@ -193,14 +199,14 @@ const eventInfo = {
     align-items: center;
     gap: 0.7rem;
     padding: 0.8rem;
-    background: #F0F8FF; /* Azul alice */
+    background: #F0F8FF;
     border-radius: 8px;
     transition: all 0.3s ease;
     border: 1px solid #E6F7FF;
   }
 
   .radio-option:hover {
-    background: #E6F7FF; /* Azul claro */
+    background: #E6F7FF;
   }
 
   .radio-option span {
@@ -208,9 +214,9 @@ const eventInfo = {
   }
 
   .submit-button {
-    inline-size: 100%;
+    width: 100%;
     padding: 1rem;
-    background: linear-gradient(to right, #5AA2D1, #4682B4); /* Degradado azul */
+    background: linear-gradient(to right, #5AA2D1, #4682B4);
     color: white;
     border: none;
     border-radius: 8px;
@@ -218,17 +224,21 @@ const eventInfo = {
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-    margin-block-start: 0.5rem;
+    margin-top: 0.5rem;
     box-shadow: 0 2px 5px rgba(70, 130, 180, 0.2);
   }
 
   .submit-button:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 10px rgba(70, 130, 180, 0.3);
-    background: linear-gradient(to right, #4682B4, #3A7CA5); /* Degradado azul más oscuro */
+    background: linear-gradient(to right, #4682B4, #3A7CA5);
   }
 
-  @media (max-inline-size: 480px) {
+  [style="display:none"] {
+    display: none !important;
+  }
+
+  @media (max-width: 480px) {
     .confirmation-section {
       padding: 1rem;
     }
