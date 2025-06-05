@@ -4,7 +4,6 @@ import Header from '../components/Header.astro';
 import '../styles/global.css';
 
 
-
 const { title, favicon = '/images/gallery/favicon.png' } = Astro.props;
 ---
 
@@ -12,10 +11,10 @@ const { title, favicon = '/images/gallery/favicon.png' } = Astro.props;
 <html lang="es">
 <head>
   <link rel="icon" href={favicon} />
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{title}</title>
-  <link rel="stylesheet" href="/styles/global.css">
+  <link rel="stylesheet" href="/styles/global.css" />
   <style>
     body {
       display: flex;
@@ -23,26 +22,10 @@ const { title, favicon = '/images/gallery/favicon.png' } = Astro.props;
       min-block-size: 100vh;
       background: linear-gradient(180deg, #F0F8FF 0%, #E6F7FF 100%);
     }
-
     main {
       flex: 1;
       padding: 2rem 1rem;
     }
-
-    footer {
-      background-color: rgba(173, 216, 230, 0.3); /* Azul claro semitransparente */
-      color: #5F7D8B; /* Azul grisáceo */
-      text-align: center;
-      padding: 1.5rem;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.1rem;
-      border-block-start: 1px solid #B0E0E6; /* Borde azul claro */
-    }
-
-    footer p {
-      margin: 0;
-    }
-
     @media (min-inline-size: 768px) {
       main {
         padding: 3rem 2rem;
@@ -55,264 +38,175 @@ const { title, favicon = '/images/gallery/favicon.png' } = Astro.props;
   <main>
     <slot />
   </main>
-<footer class="magic-footer">
-  <div class="footer-content">
-    <!-- Logo interactivo cuadrado con bordes redondeados -->
-    <div class="logo-container">
-      <a href="https://www.minainformatica.com/" target="_blank" class="logo-link" aria-label="Mina Informática">
-        <img src="/images/gallery/favicon.png" alt="Logo Mina Informática" class="square-logo" loading="lazy">
-      </a>
-    </div>
 
+  <footer class="magic-footer" id="footer">
+    <div class="footer-content">
+      <div class="contact-developer">
+        <a href="https://www.minainformatica.com/" target="_blank" aria-label="Mina Informática" class="logo-container">
+          <img
+            src="/images/gallery/favicon.png"
+            alt="Logo Mina Informática"
+            class="square-logo"
+            loading="lazy"
+          />
+        </a>
 
-    <div class="footer-copyright">
-      <p>© 2025 Desarrollado por:</p>
-      <div class="developer-links">
-        <a href="https://www.linkedin.com/in/jacquelina" target="_blank" class="social-link linkedin" aria-label="Perfil de LinkedIn">
-          <svg class="social-icon" viewBox="0 0 24 24" width="18" height="18">
-            <path fill="currentColor" d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
-          </svg>
-          <span>Jaquelina</span>
-        </a>
-        <span class="separator">de</span>
-        <a href="https://instagram.com/minainformatica" target="_blank" class="social-link instagram" aria-label="Perfil de Instagram">
-          <svg class="social-icon" viewBox="0 0 24 24" width="18" height="18">
-            <path fill="currentColor" d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3z"/>
-          </svg>
-          <span>minainformatica</span>
-        </a>
+        <p class="contact-text">Desarrollador</p>
+
+        <div class="developer-links">
+          <a href="https://www.linkedin.com/in/jacquelina" target="_blank" class="social-link linkedin" aria-label="LinkedIn Jaquelina">
+            <svg class="social-icon" viewBox="0 0 24 14" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+            </svg>
+          </a>
+
+          <a href="https://instagram.com/minainformatica" target="_blank" class="social-link instagram" aria-label="Instagram Mina Informática">
+            <svg class="social-icon" viewBox="0 0 26 14" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3z"/>
+            </svg>
+          </a>
+        </div>
       </div>
     </div>
-    
-    <!-- Efecto burbujas mágicas -->
-    <div class="bubbles">
-      <div class="bubble" style="--size: 0.3rem; --distance: 6vw; --duration: 15s; --delay: 0s"></div>
-      <div class="bubble" style="--size: 0.5rem; --distance: 8vw; --duration: 12s; --delay: 2s"></div>
-      <div class="bubble" style="--size: 0.4rem; --distance: 7vw; --duration: 18s; --delay: 1s"></div>
-    </div>
-  </div>
-</footer>
 
-<style>
-  /* Estilos para centrar el logo */
-  .logo-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    margin: 0 auto 1.5rem;
-    padding: 0 1rem;
-    animation: float 6s ease-in-out infinite;
-  }
+    <p class="text-sm mt-4">
+      © 2025 Mina Informática. Todos los derechos reservados.
+      <br />
+     </p>
+  </footer>
+  
 
-  .logo-link {
-    display: inline-flex;
-    justify-content: center;
-  }
+  <!-- Botón flotante -->
+  <button id="scrollToTopBtn" aria-label="Volver arriba">
+    ⬆︎
+  </button>
 
-  .square-logo {
-    width: 50px;
-    height: 50px;
-    border-radius: 12px;
-    object-fit: contain;
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    background: rgba(255, 255, 255, 0.1);
-    padding: 5px;
-    box-shadow: 
-      0 2px 8px rgba(70, 130, 180, 0.2),
-      inset 0 0 10px rgba(255, 255, 255, 0.1);
-    margin: 0 auto; /* Centrado adicional */
-  }
-
-  /* Efectos hover (se mantienen igual) */
-  .logo-link:hover .square-logo {
-    transform: scale(1.15) rotate(5deg);
-    border-color: #87CEEB;
-    background: rgba(255, 255, 255, 0.2);
-    box-shadow: 
-      0 6px 20px rgba(70, 130, 180, 0.4),
-      inset 0 0 15px rgba(255, 255, 255, 0.2);
-    filter: brightness(1.1);
-  }
-
-  @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-5px); }
-  }
-
-  /* Responsive */
-  @media (max-width: 768px) {
-    .square-logo {
-      width: 45px;
-      height: 45px;
+  <style>
+    .magic-footer {
+      background: linear-gradient(135deg, #4682b4 0%, #5aa2d1 100%);
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+      font-family: 'Arial', sans-serif;
+      font-size: 1rem;
+      border-top: 1px solid #87ceeb;
+      margin-top: 3rem;
     }
+
+    .contact-developer {
+      margin-top: 1rem;
+    }
+
     .logo-container {
+      display: inline-block;
+      margin-bottom: 0.5rem;
+    }
+
+    .square-logo {
+      width: 80px;
+      height: 80px;
+      border-radius: 16px;
+      object-fit: contain;
+      opacity: 0.85;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+
+    .square-logo:hover {
+      transform: scale(1.15);
+      opacity: 1;
+    }
+
+    .contact-text {
+      font-weight: 600;
+      font-size: 1.3rem;
       margin-bottom: 1rem;
     }
-  }
-</style>
 
-<style>
-  .magic-footer {
-    background: linear-gradient(135deg, #4682B4 0%, #5AA2D1 100%);
-    color: white;
-    text-align: center;
-    padding: 2rem 1rem;
-    font-family: 'Arial', sans-serif;
-    font-size: 1rem;
-    border-top: 1px solid #87CEEB;
-    margin-top: 3rem;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .footer-content {
-    max-inline-size: 1200px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 2;
-  }
-
-  .footer-copyright p {
-    margin-block-end: 0.5rem;
-    color: #E6F7FF;
-  }
-
-  .developer-links {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 0.8rem;
-    margin-block-start: 0.8rem;
-  }
-
-  .separator {
-    margin: 0 0.3rem;
-    color: #B0E0E6;
-    font-size: 0.9em;
-  }
-
-  .social-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
-    color: white;
-    text-decoration: none;
-    padding: 0.5rem 1rem;
-    border-radius: 24px;
-    transition: all 0.3s ease;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(4px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-  }
-
-  .social-link:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  }
-
-  .social-link.linkedin:hover {
-    background: rgba(10, 102, 194, 0.2);
-    border-color: rgba(10, 102, 194, 0.4);
-  }
-
-  .social-link.instagram:hover {
-    background: rgba(225, 48, 108, 0.15);
-    border-color: rgba(225, 48, 108, 0.3);
-  }
-
-  .social-icon {
-    width: 18px;
-    height: 18px;
-    transition: all 0.3s ease;
-    flex-shrink: 0;
-  }
-
-  .social-link:hover .social-icon {
-    transform: scale(1.15) rotate(5deg);
-  }
-
-  /* Efecto burbujas mágicas */
-  .bubbles {
-    position: absolute;
-    inset-block-start: 0;
-    inset-inline-start: 0;
-    inline-size: 100%;
-    block-size: 100%;
-    z-index: 1;
-    pointer-events: none;
-  }
-
-  .bubble {
-    position: absolute;
-    inset-block-end: -10px;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-    animation: float-up var(--duration) linear infinite var(--delay);
-    opacity: 0.6;
-    inline-size: var(--size);
-    block-size: var(--size);
-    inset-inline-start: calc(var(--distance) + (100% - var(--distance)) * var(--random));
-  }
-
-  @keyframes float-up {
-    0% {
-      transform: translateY(0) scale(1);
-      opacity: 0.6;
-    }
-    100% {
-      transform: translateY(-100vh) scale(0.8);
-      opacity: 0;
-    }
-  }
-
-  /* Responsive */
-  @media (max-inline-size: 768px) {
-    .magic-footer {
-      padding: 1.5rem 1rem;
-      font-size: 0.9rem;
-    }
-    
     .developer-links {
-      flex-direction: column;
-      gap: 0.5rem;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
     }
-    
-    .separator {
-      display: none;
-    }
-    
-    .social-link {
-      padding: 0.4rem 0.8rem;
-    }
-    
-    .bubble {
-      display: none;
-    }
-  }
 
-  @media (max-inline-size: 480px) {
+    .social-link {
+      color: white;
+      opacity: 0.8;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .social-link:hover {
+      opacity: 1;
+      transform: scale(1.2);
+    }
+
     .social-icon {
-      inline-size: 16px;
-      block-size: 16px;
+      width: 30px;
+      height: 30px;
     }
-    
-    .social-link {
-      padding: 0.3rem 0.7rem;
-    }
-  }
-</style>
 
-<script>
-  // Inicializar posiciones aleatorias de burbujas
-  document.addEventListener('DOMContentLoaded', () => {
-    const bubbles = document.querySelectorAll('.bubble');
-    bubbles.forEach(bubble => {
-      bubble.style.setProperty('--random', Math.random().toFixed(2));
+    .text-sm {
+      font-size: 0.875rem;
+      margin-top: 1rem;
+    }
+
+    .mt-4 {
+      margin-top: 1rem;
+    }
+
+    /* Estilos del botón flotante */
+    #scrollToTopBtn {
+      position: fixed;
+      bottom: 2rem;
+      right: 1.5rem;
+      background: rgba(70, 130, 180, 0.6);
+      border: none;
+      border-radius: 9999px;
+      padding: 0.75rem 0.85rem;
+      font-size: 1.5rem;
+      color: white;
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease, background 0.3s ease;
+      z-index: 999;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    #scrollToTopBtn.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    #scrollToTopBtn.solid {
+      background: #4682b4;
+    }
+  </style>
+
+  <script is:inline>
+    const scrollBtn = document.getElementById('scrollToTopBtn');
+    const footer = document.getElementById('footer');
+
+    window.addEventListener('scroll', () => {
+      const footerTop = footer.getBoundingClientRect().top;
+      const windowHeight = window.innerHeight;
+
+      if (footerTop < windowHeight) {
+        scrollBtn.classList.add('visible', 'solid');
+      } else if (window.scrollY > windowHeight / 2) {
+        scrollBtn.classList.add('visible');
+        scrollBtn.classList.remove('solid');
+      } else {
+        scrollBtn.classList.remove('visible', 'solid');
+      }
     });
-  });
-</script>
+
+    scrollBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
 </body>
 </html>

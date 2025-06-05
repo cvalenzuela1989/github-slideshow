@@ -40,7 +40,7 @@ const images = [
     {images.map((_, index) => (
       <button 
         class="dot" 
-        onclick="goToSlide(${index})"
+        onclick={`goToSlide(${index})`}
         aria-label={`Ir a foto ${index + 1}`}
       />
     ))}
@@ -50,18 +50,18 @@ const images = [
 <style>
   .gallery {
     padding: 2rem 1rem;
-    max-inline-size: 800px;
+    max-width: 800px;
     margin: 0 auto;
     position: relative;
-    background: rgba(240, 248, 255, 0.5); /* Fondo azul alice semi-transparente */
+    background: rgba(240, 248, 255, 0.5);
     border-radius: 12px;
   }
 
   .gallery-title {
     text-align: center;
-    color: #4682B4; /* Steel blue */
+    color: #4682B4;
     font-family: 'Playfair Display', serif;
-    margin-block-end: 2rem;
+    margin-bottom: 2rem;
     font-size: 2rem;
     position: relative;
   }
@@ -69,12 +69,12 @@ const images = [
   .gallery-title::after {
     content: '';
     position: absolute;
-    inset-block-end: -10px;
-    inset-inline-start: 50%;
-    transform: translateY(-50%);
-    inline-size: 100px;
-    block-size: 2px;
-    background: linear-gradient(90deg, transparent, #87CEEB, transparent); /* Azul cielo */
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #87CEEB, transparent);
   }
 
   .carousel-container {
@@ -83,24 +83,27 @@ const images = [
     align-items: center;
     justify-content: center;
     margin: 0 auto;
-    max-inline-size: 500px;
+    max-width: 700px;
+    width: 100%;
   }
 
   .carousel {
     position: relative;
-    inline-size: 200%;
-    block-size: 700px;
+    width: 100%;
+    height: 600px; /* Altura fija ajustable */
     overflow: hidden;
     border-radius: 10px;
-    box-shadow: 0 8px 25px rgba(135, 206, 235, 0.3); /* Sombra azul */
+    box-shadow: 0 8px 25px rgba(135, 206, 235, 0.3);
   }
 
   .slide {
     position: absolute;
-    inline-size: 100%;
-    block-size: 100%;
+    width: 100%;
+    height: 100%;
     opacity: 0;
-    transition: opacity 0.5s ease, transform 0.5s ease;
+    transition: opacity 0.5s ease;
+    top: 0;
+    left: 0;
   }
 
   .slide[data-index="0"] {
@@ -110,41 +113,43 @@ const images = [
 
   .elegant-frame {
     position: relative;
-    inline-size: 100%;
-    block-size: 100%;
-    padding: 15px;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
     background: white;
-    box-shadow: 0 10px 30px rgba(70, 130, 180, 0.15); /* Sombra steel blue */
-    border: 1px solid #E6F7FF; /* Borde azul claro */
+    box-shadow: 0 10px 30px rgba(70, 130, 180, 0.15);
+    border: 1px solid #E6F7FF;
+    box-sizing: border-box;
   }
 
   .gallery-image {
-    inline-size: 100%;
-    block-size: 100%;
-    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Cambiado de 'cover' a 'contain' */
     display: block;
   }
 
   .frame-overlay {
     position: absolute;
-    inset-block-start: 0;
-    inset-inline-start: 0;
-    inline-size: 100%;
-    block-size: 100%;
-    border: 2px solid rgba(173, 216, 230, 0.5); /* Azul claro semi-transparente */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 2px solid rgba(173, 216, 230, 0.5);
     pointer-events: none;
+    box-sizing: border-box;
   }
 
   .nav-button {
     position: absolute;
-    inset-block-start: 50%;
+    top: 50%;
     transform: translateY(-50%);
-    inline-size: 40px;
-    block-size: 40px;
+    width: 40px;
+    height: 40px;
     background: rgba(255, 255, 255, 0.9);
-    border: 1px solid #B0E0E6; /* Borde azul polvo */
+    border: 1px solid #B0E0E6;
     border-radius: 50%;
-    color: #4682B4; /* Steel blue */
+    color: #4682B4;
     font-size: 1.2rem;
     cursor: pointer;
     z-index: 2;
@@ -156,45 +161,45 @@ const images = [
   }
 
   .nav-button:hover {
-    background: #4682B4; /* Steel blue */
+    background: #4682B4;
     color: white;
     transform: translateY(-50%) scale(1.1);
     border-color: #4682B4;
   }
 
   .prev {
-    inset-inline-start: 10px;
+    left: 10px;
   }
 
   .next {
-    inset-inline-end: 10px;
+    right: 10px;
   }
 
   .dots {
     display: flex;
     justify-content: center;
     gap: 10px;
-    margin-block-start: 1.5rem;
+    margin-top: 1.5rem;
   }
 
   .dot {
-    inline-size: 12px;
-    block-size: 12px;
+    width: 12px;
+    height: 12px;
     border-radius: 50%;
-    background: #B0E0E6; /* Azul polvo */
+    background: #B0E0E6;
     border: none;
     cursor: pointer;
     transition: all 0.3s ease;
   }
 
   .dot.active {
-    background: #4682B4; /* Steel blue */
+    background: #4682B4;
     transform: scale(1.3);
   }
 
-  @media (max-inline-size: 600px) {
+  @media (max-width: 600px) {
     .carousel {
-      block-size: 300px;
+      height: 300px;
     }
     
     .gallery-title {
@@ -202,8 +207,12 @@ const images = [
     }
     
     .nav-button {
-      inline-size: 35px;
-      block-size: 35px;
+      width: 35px;
+      height: 35px;
+    }
+    
+    .elegant-frame {
+      padding: 5px;
     }
   }
 </style>
@@ -255,6 +264,14 @@ const images = [
   }
 
   document.addEventListener('DOMContentLoaded', () => {
+    // Ajustar tamaño de las imágenes al cargar
+    const images = document.querySelectorAll('.gallery-image');
+    images.forEach(img => {
+      img.style.width = '100%';
+      img.style.height = '100%';
+      img.style.objectFit = 'contain';
+    });
+    
     startAutoScroll();
     
     const carousel = document.querySelector('.carousel-container');

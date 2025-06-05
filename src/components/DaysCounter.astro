@@ -1,7 +1,8 @@
 ---
-const birthday = new Date('2025-06-07');
+const birthday = new Date('2025-06-07T00:00:00'); // Hora fija para evitar errores por zona horaria
 const today = new Date();
-const diffTime = birthday - today;
+today.setHours(0, 0, 0, 0); // Normaliza para comparar correctamente
+const diffTime = birthday.getTime() - today.getTime();
 const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 const isBirthday = diffDays === 0;
 ---
@@ -18,39 +19,56 @@ const isBirthday = diffDays === 0;
   <canvas id="fireworks-canvas" class="fireworks-canvas"></canvas>
 )}
 
-<script type="module" client:load>
+<script type="module">
   import confetti from 'https://cdn.skypack.dev/canvas-confetti';
 
-  const isBirthday = {isBirthday};
+  const birthday = new Date('2025-06-07T00:00:00');
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const diffTime = birthday.getTime() - today.getTime();
+  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+  const isBirthday = diffDays === 0;
 
-  if (isBirthday) {
-    const canvas = document.getElementById('fireworks-canvas');
-    const myConfetti = confetti.create(canvas, { resize: true, useWorker: true });
+  // Inserta dinámicamente el número de días en la página
+  document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('days-number').textContent = diffDays;
 
-    const duration = 5000; // 5 segundos
-    const end = Date.now() + duration;
+    if (isBirthday) {
+      const canvas = document.getElementById('fireworks-canvas');
+      const myConfetti = confetti.create(canvas, { resize: true, useWorker: true });
 
-    function launchConfetti() {
-      myConfetti({
-        particleCount: 10,
-        spread: 60,
-        startVelocity: 40,
-        ticks: 60,
-        origin: {
-          x: Math.random(),
-          y: Math.random() * 0.5,
-        },
-        colors: ['#ff0000', '#00ff00', '#0000ff', '#ffff00'],
-      });
+      const duration = 6000;
+      const animationEnd = Date.now() + duration;
 
-      if (Date.now() < end) {
-        requestAnimationFrame(launchConfetti);
-      }
+      (function frame() {
+        myConfetti({
+          particleCount: 5,
+          spread: 70,
+          startVelocity: 20,
+          ticks: 150,
+          origin: {
+            x: Math.random(),
+            y: Math.random() * 0.8,
+          },
+          colors: ['#ff0', '#0f0', '#00f', '#f0f'],
+          shapes: ['circle'],
+          scalar: 1.5,
+        });
+
+        if (Date.now() < animationEnd) {
+          requestAnimationFrame(frame);
+        }
+      })();
+    } else {
+      // Oculta el canvas si no es el día
+      document.getElementById('fireworks-canvas').style.display = 'none';
     }
-
-    launchConfetti();
-  }
+  });
 </script>
+
+
+<canvas id="fireworks-canvas" class="fireworks-canvas"></canvas>
+
 
 <style>
   .days-counter {

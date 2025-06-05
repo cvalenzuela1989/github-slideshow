@@ -1,0 +1,136 @@
+---
+const pathname = Astro.url?.pathname || '/';
+const locale = pathname.startsWith('/en')
+  ? 'en'
+  : pathname.startsWith('/pt')
+  ? 'pt'
+  : 'es';
+---
+
+<style is:global>
+  .banner {
+    opacity: 0;
+    transform: translateY(-10px);
+    display: none;
+    transition: opacity 3s ease, transform 3s ease;
+    position: relative;
+  }
+
+  .banner.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .pulse-soft {
+    animation: pulse-soft 2s ease-in-out infinite;
+    animation-delay: 2s;
+  }
+
+  @keyframes pulse-soft {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+  }
+
+  .banner-close {
+    position: absolute;
+    top: 0.3rem;
+    right: 0.5rem;
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    color: black;
+    user-select: none;
+    background: transparent;
+    border: none;
+    line-height: 1;
+    padding: 0;
+    transition: color 0.3s ease;
+  }
+
+  .banner-close:hover {
+    color: #555;
+  }
+</style>
+
+<script is:browser>
+  window.addEventListener('DOMContentLoaded', () => {
+    const banner = document.querySelector('.banner');
+    if (!banner) return;
+
+    // Mostrar el banner después de 3 segundos iniciando transición
+    setTimeout(() => {
+      banner.style.display = 'block'; // mostrar bloque para que transiciones funcionen
+      // Forzar reflow para que la transición funcione en algunos navegadores
+      banner.offsetHeight;
+      banner.style.opacity = '0.5';
+      banner.style.transform = 'translateY(-5px)';
+    }, 6000);
+
+    // Completar la animación a opacidad 1 y transform translateY(0) a los 6 segundos
+    setTimeout(() => {
+      banner.style.opacity = '1';
+      banner.style.transform = 'translateY(0)';
+    }, 9000);
+
+    // Botón cerrar
+    const closeBtn = banner.querySelector('.banner-close');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', () => {
+        banner.style.opacity = '0';
+        banner.style.transform = 'translateY(-10px)';
+        setTimeout(() => {
+          banner.style.display = 'none';
+        }, 1000); // espera que termine transición para ocultar
+      });
+    }
+  });
+</script>
+
+{locale === 'es' && (
+  <div class="banner bg-yellow-50 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-100 shadow-md py-4 px-6 text-center rounded-lg transition-all relative" style="display:none; opacity:0; transform: translateY(-10px);">
+    <button class="banner-close" aria-label="Cerrar banner">&times;</button>
+    <p class="text-lg font-semibold">
+      🎉 Invitación digital + formulario automático por solo <strong class="text-yellow-700 dark:text-yellow-300">699.000 Gs</strong>
+      <span class="line-through ml-2 opacity-60">ANTES 1.398.000 Gs</span>
+    </p>
+    <p class="text-sm mt-1 italic">🔥 Promoción exclusiva por tiempo limitado. ¡Aprovechá ya!</p>
+    <a 
+      href="https://wa.me/5491160391002?text=Quiero%20mi%20invitacion%20digital%20con%20el%20descuento%20del%2050%25%20a%20solo%20699.000%20Gs" 
+      target="_blank" 
+      rel="noopener noreferrer"
+      class="mt-2 inline-block bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded-full pulse-soft transition-all"
+    >
+      ¡Reservar ahora!
+    </a>
+  </div>
+)}
+
+{locale === 'en' && (
+  <div class="banner bg-blue-50 dark:bg-blue-900 text-blue-800 dark:text-blue-100 shadow-md py-4 px-6 text-center rounded-lg transition-all relative" style="display:none; opacity:0; transform: translateY(-10px);">
+    <button class="banner-close" aria-label="Close banner">&times;</button>
+    <p class="text-lg font-semibold">
+      🎉 Digital invite + auto RSVP form for only <strong class="text-blue-700 dark:text-blue-300">USD 70</strong>
+      <span class="line-through ml-2 opacity-60">USD 140</span>
+    </p>
+    <p class="text-sm mt-1 italic">🔥 50% OFF – Limited time only!</p>
+    <a href="/en/conectemos" class="mt-2 inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full pulse-soft transition-all">
+      Book Now!
+    </a>
+  </div>
+)}
+
+{locale === 'pt' && (
+  <div class="banner bg-green-50 dark:bg-green-900 text-green-800 dark:text-green-100 shadow-md py-4 px-6 text-center rounded-lg transition-all relative" style="display:none; opacity:0; transform: translateY(-10px);">
+    <button class="banner-close" aria-label="Fechar banner">&times;</button>
+    <p class="text-lg font-semibold">
+      🎉 Convite digital + formulário automático por apenas <strong class="text-green-700 dark:text-green-300">R$ 350</strong>
+      <span class="line-through ml-2 opacity-60">R$ 700</span>
+    </p>
+    <p class="text-sm mt-1 italic">🔥 50% de desconto por tempo limitado. Aproveite!</p>
+    <a href="/pt/conectemos" class="mt-2 inline-block bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full pulse-soft transition-all">
+      Quero meu convite!
+    </a>
+  </div>
+)}

@@ -1,38 +1,52 @@
-<!DOCTYPE html><html lang="es" data-astro-cid-ouamjn2i> <head><link rel="icon" href="./images//gallery/favicon.png"><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>La Fiesta de Milagros - XV Años</title><link rel="stylesheet" href="/styles/global.css"><link rel="stylesheet" href="/_astro/gallery.CixTgWSo.css">
-<link rel="stylesheet" href="/_astro/gracias.CJFWb31t.css">
-<link rel="stylesheet" href="/_astro/index.DJBd4f2N.css"></head> <body data-astro-cid-ouamjn2i>  <main data-astro-cid-ouamjn2i>  <div class="days-counter" data-astro-cid-nointdvg> <div class="counter-container" data-astro-cid-nointdvg> <h3 class="counter-text" data-astro-cid-nointdvg>Faltan solo</h3> <div class="number" data-astro-cid-nointdvg>24</div> <h3 class="counter-text" data-astro-cid-nointdvg>días para mi fiesta</h3> </div> </div>  <script type="module" client:load>
+<!DOCTYPE html><html lang="es" data-astro-cid-ouamjn2i> <head><link rel="icon" href="./images//gallery/favicon.png"><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>La Fiesta de Milagros - XV Años</title><link rel="stylesheet" href="/styles/global.css"><link rel="stylesheet" href="/_astro/gallery.pBCbLu-F.css">
+<style>body{font-family:Arial,sans-serif;line-height:1.6;color:#4a6b8a;max-inline-size:100%;overflow-x:hidden;background-color:#f5fcff}section{padding:2rem 1rem;margin:0 auto;max-inline-size:800px}h1,h2,h3{color:#4682b4;text-align:center}.photo-grid{display:flex;flex-direction:column;gap:1rem;margin:2rem 0}.photo-grid img{inline-size:100%;border-radius:8px;box-shadow:0 4px 8px #87ceeb33;border:1px solid #e1f5fe}@media (min-width: 600px){section{padding:2rem}}.submit-button{transition:all .3s ease;background-color:#87ceeb}.submit-button:hover{transform:scale(1.05);box-shadow:0 4px 12px #40a4df4d}a{color:#5aa2d1}a:hover{color:#3a7ca5}::-moz-selection{background:#b0e0e6;color:#fff}::selection{background:#b0e0e6;color:#fff}.magic-footer[data-astro-cid-ouamjn2i]{background:linear-gradient(135deg,#4682b4,#5aa2d1);color:#fff;text-align:center;padding:2rem 1rem;font-family:Arial,sans-serif;font-size:1rem;border-top:1px solid #87ceeb;margin-top:3rem}.contact-developer[data-astro-cid-ouamjn2i]{margin-top:1rem}.logo-container[data-astro-cid-ouamjn2i]{display:inline-block;margin-bottom:.5rem}.square-logo[data-astro-cid-ouamjn2i]{width:80px;height:80px;border-radius:16px;-o-object-fit:contain;object-fit:contain;opacity:.85;transition:transform .3s ease,opacity .3s ease;box-shadow:0 4px 10px #00000026}.square-logo[data-astro-cid-ouamjn2i]:hover{transform:scale(1.15);opacity:1}.contact-text[data-astro-cid-ouamjn2i]{font-weight:600;font-size:1.3rem;margin-bottom:1rem}.developer-links[data-astro-cid-ouamjn2i]{display:flex;justify-content:center;gap:2rem}.social-link[data-astro-cid-ouamjn2i]{color:#fff;opacity:.8;transition:opacity .3s ease,transform .3s ease;display:flex;align-items:center;justify-content:center}.social-link[data-astro-cid-ouamjn2i]:hover{opacity:1;transform:scale(1.2)}.social-icon[data-astro-cid-ouamjn2i]{width:30px;height:30px}.text-sm[data-astro-cid-ouamjn2i]{font-size:.875rem;margin-top:1rem}.mt-4[data-astro-cid-ouamjn2i]{margin-top:1rem}#scrollToTopBtn[data-astro-cid-ouamjn2i]{position:fixed;bottom:2rem;right:1.5rem;background:#4682b499;border:none;border-radius:9999px;padding:.75rem .85rem;font-size:1.5rem;color:#fff;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .4s ease,background .3s ease;z-index:999;box-shadow:0 4px 10px #0003}#scrollToTopBtn[data-astro-cid-ouamjn2i].visible{opacity:1;pointer-events:auto}#scrollToTopBtn[data-astro-cid-ouamjn2i].solid{background:#4682b4}body{display:flex;flex-direction:column;min-block-size:100vh;background:linear-gradient(180deg,#f0f8ff,#e6f7ff)}main[data-astro-cid-ouamjn2i]{flex:1;padding:2rem 1rem}@media (min-inline-size: 768px){main[data-astro-cid-ouamjn2i]{padding:3rem 2rem}}
+</style>
+<link rel="stylesheet" href="/_astro/index.VhedYz56.css"></head> <body data-astro-cid-ouamjn2i>  <main data-astro-cid-ouamjn2i>  <div class="days-counter" data-astro-cid-nointdvg> <div class="counter-container" data-astro-cid-nointdvg> <h3 class="counter-text" data-astro-cid-nointdvg>Faltan solo</h3> <div class="number" data-astro-cid-nointdvg>2</div> <h3 class="counter-text" data-astro-cid-nointdvg>días para mi fiesta</h3> </div> </div>  <script type="module">
   import confetti from 'https://cdn.skypack.dev/canvas-confetti';
 
-  const isBirthday = {isBirthday};
+  const birthday = new Date('2025-06-07T00:00:00');
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const diffTime = birthday.getTime() - today.getTime();
+  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+  const isBirthday = diffDays === 0;
 
-  if (isBirthday) {
-    const canvas = document.getElementById('fireworks-canvas');
-    const myConfetti = confetti.create(canvas, { resize: true, useWorker: true });
+  // Inserta dinámicamente el número de días en la página
+  document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('days-number').textContent = diffDays;
 
-    const duration = 5000; // 5 segundos
-    const end = Date.now() + duration;
+    if (isBirthday) {
+      const canvas = document.getElementById('fireworks-canvas');
+      const myConfetti = confetti.create(canvas, { resize: true, useWorker: true });
 
-    function launchConfetti() {
-      myConfetti({
-        particleCount: 10,
-        spread: 60,
-        startVelocity: 40,
-        ticks: 60,
-        origin: {
-          x: Math.random(),
-          y: Math.random() * 0.5,
-        },
-        colors: ['#ff0000', '#00ff00', '#0000ff', '#ffff00'],
-      });
+      const duration = 6000;
+      const animationEnd = Date.now() + duration;
 
-      if (Date.now() < end) {
-        requestAnimationFrame(launchConfetti);
-      }
+      (function frame() {
+        myConfetti({
+          particleCount: 5,
+          spread: 70,
+          startVelocity: 20,
+          ticks: 150,
+          origin: {
+            x: Math.random(),
+            y: Math.random() * 0.8,
+          },
+          colors: ['#ff0', '#0f0', '#00f', '#f0f'],
+          shapes: ['circle'],
+          scalar: 1.5,
+        });
+
+        if (Date.now() < animationEnd) {
+          requestAnimationFrame(frame);
+        }
+      })();
+    } else {
+      // Oculta el canvas si no es el día
+      document.getElementById('fireworks-canvas').style.display = 'none';
     }
-
-    launchConfetti();
-  }
-</script>   <section class="thank-you-section" data-astro-cid-k7fyb7ar> <div class="thank-you-card" data-astro-cid-k7fyb7ar> <div class="thank-you-content" data-astro-cid-k7fyb7ar> <h2 class="thank-you-title" data-astro-cid-k7fyb7ar>Con todo mi corazón</h2> <div class="thank-you-text" data-astro-cid-k7fyb7ar> <p class="thank-you-paragraph" data-astro-cid-k7fyb7ar> <span class="drop-cap" data-astro-cid-k7fyb7ar>A</span>gradezco a Dios por cada bendición en mi vida y a mis padres por hacer realidad este sueño.
+  });
+</script> <canvas id="fireworks-canvas" class="fireworks-canvas" data-astro-cid-nointdvg></canvas>   <section class="thank-you-section" data-astro-cid-k7fyb7ar> <div class="thank-you-card" data-astro-cid-k7fyb7ar> <div class="thank-you-content" data-astro-cid-k7fyb7ar> <h2 class="thank-you-title" data-astro-cid-k7fyb7ar>Con todo mi corazón</h2> <div class="thank-you-text" data-astro-cid-k7fyb7ar> <p class="thank-you-paragraph" data-astro-cid-k7fyb7ar> <span class="drop-cap" data-astro-cid-k7fyb7ar>A</span>gradezco a Dios por cada bendición en mi vida y a mis padres por hacer realidad este sueño.
 </p> <p class="thank-you-paragraph" data-astro-cid-k7fyb7ar>
 A partir de hoy, comienzan nuevos caminos por recorrer y nuevas etapas en mi vida.
 </p> <p class="thank-you-paragraph" data-astro-cid-k7fyb7ar>
@@ -41,7 +55,7 @@ Este día tan anhelado ha llegado, y hoy quiero compartirlo con ustedes para hac
 ❮
 </button> <div class="carousel" data-astro-cid-auwy4is6> <div class="slide" data-index="0" data-astro-cid-auwy4is6> <div class="elegant-frame" data-astro-cid-auwy4is6> <img src="/images/photo1.jpg" alt="Foto 1" loading="lazy" class="gallery-image" data-astro-cid-auwy4is6> <div class="frame-overlay" data-astro-cid-auwy4is6></div> </div> </div><div class="slide" data-index="1" data-astro-cid-auwy4is6> <div class="elegant-frame" data-astro-cid-auwy4is6> <img src="/images/photo2.jpg" alt="Foto 2" loading="lazy" class="gallery-image" data-astro-cid-auwy4is6> <div class="frame-overlay" data-astro-cid-auwy4is6></div> </div> </div><div class="slide" data-index="2" data-astro-cid-auwy4is6> <div class="elegant-frame" data-astro-cid-auwy4is6> <img src="/images/photo3.jpg" alt="Foto 3" loading="lazy" class="gallery-image" data-astro-cid-auwy4is6> <div class="frame-overlay" data-astro-cid-auwy4is6></div> </div> </div> </div> <button class="nav-button next" aria-label="Siguiente" onclick="nextSlide()" data-astro-cid-auwy4is6>
 ❯
-</button> </div> <div class="dots" data-astro-cid-auwy4is6> <button class="dot" onclick="goToSlide(${index})" aria-label="Ir a foto 1" data-astro-cid-auwy4is6></button><button class="dot" onclick="goToSlide(${index})" aria-label="Ir a foto 2" data-astro-cid-auwy4is6></button><button class="dot" onclick="goToSlide(${index})" aria-label="Ir a foto 3" data-astro-cid-auwy4is6></button> </div> </section>  <script>
+</button> </div> <div class="dots" data-astro-cid-auwy4is6> <button class="dot" onclick="goToSlide(0)" aria-label="Ir a foto 1" data-astro-cid-auwy4is6></button><button class="dot" onclick="goToSlide(1)" aria-label="Ir a foto 2" data-astro-cid-auwy4is6></button><button class="dot" onclick="goToSlide(2)" aria-label="Ir a foto 3" data-astro-cid-auwy4is6></button> </div> </section>  <script>
   let currentSlide = 0;
   const slides = document.querySelectorAll('.slide');
   const dots = document.querySelectorAll('.dot');
@@ -88,6 +102,14 @@ Este día tan anhelado ha llegado, y hoy quiero compartirlo con ustedes para hac
   }
 
   document.addEventListener('DOMContentLoaded', () => {
+    // Ajustar tamaño de las imágenes al cargar
+    const images = document.querySelectorAll('.gallery-image');
+    images.forEach(img => {
+      img.style.width = '100%';
+      img.style.height = '100%';
+      img.style.objectFit = 'contain';
+    });
+    
     startAutoScroll();
     
     const carousel = document.querySelector('.carousel-container');
@@ -101,4 +123,159 @@ Este día tan anhelado ha llegado, y hoy quiero compartirlo con ustedes para hac
   });
 </script> <section class="map-section" data-astro-cid-ja76sdrp> <h2 class="map-title" data-astro-cid-ja76sdrp>Ubicación del evento</h2> <div class="map-container" data-astro-cid-ja76sdrp> <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d225.24894939061627!2d-57.568820610847574!3d-25.405373271727214!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x945dab200a2f0451%3A0xb6b6a7400feb56ac!2sDinastia%20salon%20de%20eventos!5e0!3m2!1ses-419!2spy!4v1746989775665!5m2!1ses-419!2spy" width="100%" height="400" style="border:0;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="google-map" data-astro-cid-ja76sdrp></iframe> <div class="map-actions" data-astro-cid-ja76sdrp> <a href="https://www.google.com/maps/dir//Dinastia+salon+de+eventos/@-25.4053908,-57.5687716,21z/data=!4m12!1m5!3m4!2zMjXCsDI0JzE5LjUiUyA1N8KwMzQnMDcuMiJX!8m2!3d-25.405419!4d-57.568665!3m5!1s0x945dab200a2f0451:0xb6b6a7400feb56ac!8m2!3d-25.4054195!4d-57.5686651!16s%2Fg%2F11p032g9vn?entry=ttu" target="_blank" class="direction-button" data-astro-cid-ja76sdrp>
 📍 Cómo llegar
-</a> </div> </div> </section>  <section class="confirmation-section" data-astro-cid-yrws6rmf> <div class="event-card" data-astro-cid-yrws6rmf> <div class="event-icon" data-astro-cid-yrws6rmf>🗓️</div> <div class="event-details" data-astro-cid-yrws6rmf> <p data-astro-cid-yrws6rmf><strong data-astro-cid-yrws6rmf>7 de Junio de 2025</strong> a las <strong data-astro-cid-yrws6rmf>21:00</strong></p> <p data-astro-cid-yrws6rmf>Dinastía Salón de Eventos</p> <p class="dress-code" data-astro-cid-yrws6rmf>Vestimenta semiformal</p> </div> </div> <div class="confirmation-header" data-astro-cid-yrws6rmf> <h2 class="confirmation-title" data-astro-cid-yrws6rmf>Confirmar Asistencia</h2> <div class="deadline-badge" data-astro-cid-yrws6rmf> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar" data-astro-cid-yrws6rmf> <rect x="3" y="4" width="18" height="18" rx="2" ry="2" data-astro-cid-yrws6rmf></rect> <line x1="16" y1="2" x2="16" y2="6" data-astro-cid-yrws6rmf></line> <line x1="8" y1="2" x2="8" y2="6" data-astro-cid-yrws6rmf></line> <line x1="3" y1="10" x2="21" y2="10" data-astro-cid-yrws6rmf></line> </svg> <span data-astro-cid-yrws6rmf>Confirma antes del 20 de mayo</span> </div> </div> <form action="https://formsubmit.co/milagroramirez477@gmail.com" method="POST" class="confirmation-form" data-astro-cid-yrws6rmf> <!-- Campos ocultos para FormSubmit --> <input type="hidden" name="_next" value="https://soymilayteinvitoamisxv.netlify.app/gracias" data-astro-cid-yrws6rmf> <input type="hidden" name="_subject" value="Confirmación XV Años - Nuevo RSVP" data-astro-cid-yrws6rmf> <input type="hidden" name="_template" value="table" data-astro-cid-yrws6rmf> <input type="text" name="_honey" style="display:none" data-astro-cid-yrws6rmf> <!-- Campo honeypot para spam --> <div class="form-group" data-astro-cid-yrws6rmf> <label for="name" data-astro-cid-yrws6rmf>Nombre completo</label> <input type="text" id="name" name="Nombre" required placeholder="Ej: María González" data-astro-cid-yrws6rmf> </div> <div class="form-group" data-astro-cid-yrws6rmf> <label data-astro-cid-yrws6rmf>¿Asistirás?</label> <div class="radio-group" data-astro-cid-yrws6rmf> <label class="radio-option" data-astro-cid-yrws6rmf> <input type="radio" name="Asistencia" value="Sí" required data-astro-cid-yrws6rmf> <span data-astro-cid-yrws6rmf>Sí, con mucho gusto</span> </label> <label class="radio-option" data-astro-cid-yrws6rmf> <input type="radio" name="Asistencia" value="No" data-astro-cid-yrws6rmf> <span data-astro-cid-yrws6rmf>No podré asistir</span> </label> </div> </div> <div class="form-group" data-astro-cid-yrws6rmf> <label for="guests" data-astro-cid-yrws6rmf>Número de invitados</label> <select id="guests" name="Invitados" data-astro-cid-yrws6rmf> <option value="1 persona" data-astro-cid-yrws6rmf>1 persona</option> </select> </div> <div class="form-group" data-astro-cid-yrws6rmf> <label for="message" data-astro-cid-yrws6rmf>Mensaje especial (opcional)</label> <textarea id="message" name="Mensaje" placeholder="Escribe un mensaje si lo deseas..." data-astro-cid-yrws6rmf></textarea> </div> <button type="submit" class="submit-button" data-astro-cid-yrws6rmf>Enviar Confirmación</button> </form> </section>  <main class="gallery-page" data-astro-cid-ihllb3az> <h1 class="magic-title" data-astro-cid-ihllb3az> <span class="magic-text" data-astro-cid-ihllb3az>Aquí podrás ver fotos de mi gran día</span> <span class="magic-gradient" data-astro-cid-ihllb3az></span> </h1> <div class="gallery" data-astro-cid-ihllb3az> <div class="gallery-item" key="0" data-astro-cid-ihllb3az> <img src="/images/gallery/photo1.jpg" alt="Foto 1" width="400" height="300" loading="lazy" data-astro-cid-ihllb3az> </div><div class="gallery-item" key="1" data-astro-cid-ihllb3az> <img src="/images/gallery/photo2.jpg" alt="Foto 2" width="400" height="300" loading="lazy" data-astro-cid-ihllb3az> </div><div class="gallery-item" key="2" data-astro-cid-ihllb3az> <img src="/images/gallery/photo3.jpg" alt="Foto 3" width="400" height="300" loading="lazy" data-astro-cid-ihllb3az> </div> </div> </main>   </main> <footer class="magic-footer" data-astro-cid-ouamjn2i> <div class="footer-content" data-astro-cid-ouamjn2i> <!-- Logo interactivo cuadrado con bordes redondeados --> <div class="logo-container" data-astro-cid-ouamjn2i> <a href="https://www.minainformatica.com/" target="_blank" class="logo-link" aria-label="Mina Informática" data-astro-cid-ouamjn2i> <img src="/images/gallery/favicon.png" alt="Logo Mina Informática" class="square-logo" loading="lazy" data-astro-cid-ouamjn2i> </a> </div> <div class="footer-copyright" data-astro-cid-ouamjn2i> <p data-astro-cid-ouamjn2i>© 2025 Desarrollado por:</p> <div class="developer-links" data-astro-cid-ouamjn2i> <a href="https://www.linkedin.com/in/jacquelina" target="_blank" class="social-link linkedin" aria-label="Perfil de LinkedIn" data-astro-cid-ouamjn2i> <svg class="social-icon" viewBox="0 0 24 24" width="18" height="18" data-astro-cid-ouamjn2i> <path fill="currentColor" d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" data-astro-cid-ouamjn2i></path> </svg> <span data-astro-cid-ouamjn2i>Jaquelina</span> </a> <span class="separator" data-astro-cid-ouamjn2i>de</span> <a href="https://instagram.com/minainformatica" target="_blank" class="social-link instagram" aria-label="Perfil de Instagram" data-astro-cid-ouamjn2i> <svg class="social-icon" viewBox="0 0 24 24" width="18" height="18" data-astro-cid-ouamjn2i> <path fill="currentColor" d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3z" data-astro-cid-ouamjn2i></path> </svg> <span data-astro-cid-ouamjn2i>minainformatica</span> </a> </div> </div> <!-- Efecto burbujas mágicas --> <div class="bubbles" data-astro-cid-ouamjn2i> <div class="bubble" style="--size: 0.3rem; --distance: 6vw; --duration: 15s; --delay: 0s" data-astro-cid-ouamjn2i></div> <div class="bubble" style="--size: 0.5rem; --distance: 8vw; --duration: 12s; --delay: 2s" data-astro-cid-ouamjn2i></div> <div class="bubble" style="--size: 0.4rem; --distance: 7vw; --duration: 18s; --delay: 1s" data-astro-cid-ouamjn2i></div> </div> </div> </footer>   <script type="module">document.addEventListener("DOMContentLoaded",()=>{document.querySelectorAll(".bubble").forEach(e=>{e.style.setProperty("--random",Math.random().toFixed(2))})});</script> </body> </html>
+</a> </div> </div> </section>  <section class="confirmation-section" data-astro-cid-yrws6rmf> <div class="event-card" data-astro-cid-yrws6rmf> <div class="event-icon" data-astro-cid-yrws6rmf>🗓️</div> <div class="event-details" data-astro-cid-yrws6rmf> <p data-astro-cid-yrws6rmf><strong data-astro-cid-yrws6rmf>7 de Junio de 2025</strong> a las <strong data-astro-cid-yrws6rmf>21:00</strong></p> <p data-astro-cid-yrws6rmf>Dinastía Salón de Eventos</p> <p class="dress-code" data-astro-cid-yrws6rmf>Vestimenta semiformal</p> </div> </div> <div class="confirmation-header" data-astro-cid-yrws6rmf> <h2 class="confirmation-title" data-astro-cid-yrws6rmf>Confirmar Asistencia</h2> <div class="deadline-badge" data-astro-cid-yrws6rmf> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar" data-astro-cid-yrws6rmf> <rect x="3" y="4" width="18" height="18" rx="2" ry="2" data-astro-cid-yrws6rmf></rect> <line x1="16" y1="2" x2="16" y2="6" data-astro-cid-yrws6rmf></line> <line x1="8" y1="2" x2="8" y2="6" data-astro-cid-yrws6rmf></line> <line x1="3" y1="10" x2="21" y2="10" data-astro-cid-yrws6rmf></line> </svg> <span data-astro-cid-yrws6rmf>Confirma antes del 20 de mayo</span> </div> </div> <form action="https://formsubmit.co/milagroramirez477@gmail.com" method="POST" class="confirmation-form" data-astro-cid-yrws6rmf> <!-- Campos ocultos para FormSubmit --> <input type="hidden" name="_next" value="https://soymilayteinvitoamisxv.netlify.app/gracias" data-astro-cid-yrws6rmf> <input type="hidden" name="_subject" value="Confirmación XV Años - Nuevo RSVP" data-astro-cid-yrws6rmf> <input type="hidden" name="_template" value="table" data-astro-cid-yrws6rmf> <input type="text" name="_honey" style="display:none" data-astro-cid-yrws6rmf> <!-- Campo honeypot para spam --> <div class="form-group" data-astro-cid-yrws6rmf> <label for="name" data-astro-cid-yrws6rmf>Nombre completo</label> <input type="text" id="name" name="Nombre" required placeholder="Ej: María González" data-astro-cid-yrws6rmf> </div> <div class="form-group" data-astro-cid-yrws6rmf> <label data-astro-cid-yrws6rmf>¿Asistirás?</label> <div class="radio-group" data-astro-cid-yrws6rmf> <label class="radio-option" data-astro-cid-yrws6rmf> <input type="radio" name="Asistencia" value="Sí" required data-astro-cid-yrws6rmf> <span data-astro-cid-yrws6rmf>Sí, con mucho gusto</span> </label> <label class="radio-option" data-astro-cid-yrws6rmf> <input type="radio" name="Asistencia" value="No" data-astro-cid-yrws6rmf> <span data-astro-cid-yrws6rmf>No podré asistir</span> </label> </div> </div> <div class="form-group" data-astro-cid-yrws6rmf> <label for="guests" data-astro-cid-yrws6rmf>Número de invitados</label> <select id="guests" name="Invitados" data-astro-cid-yrws6rmf> <option value="1 persona" data-astro-cid-yrws6rmf>1 persona</option> </select> </div> <div class="form-group" data-astro-cid-yrws6rmf> <label for="message" data-astro-cid-yrws6rmf>Mensaje especial (opcional)</label> <textarea id="message" name="Mensaje" placeholder="Escribe un mensaje si lo deseas..." data-astro-cid-yrws6rmf></textarea> </div> <button type="submit" class="submit-button" data-astro-cid-yrws6rmf>Enviar Confirmación</button> </form> </section>  <main class="gallery-page" data-astro-cid-ihllb3az> <h1 class="magic-title" data-astro-cid-ihllb3az> <span class="magic-text" data-astro-cid-ihllb3az>Aquí podrás ver fotos de mi gran día</span> <span class="magic-gradient" data-astro-cid-ihllb3az></span> </h1> <section class="gallery-carousel" aria-label="Galería de fotos" data-astro-cid-ihllb3az> <button id="prevBtn" aria-label="Fotos anteriores" class="btn-carousel" data-astro-cid-ihllb3az>‹</button> <div class="gallery-images-wrapper" data-astro-cid-ihllb3az> <div class="gallery-images-track" data-astro-cid-ihllb3az> <img src="/images/gallery/photo1.jpg" alt="Foto 1" loading="lazy" class="gallery-image" data-index="0" data-astro-cid-ihllb3az><img src="/images/gallery/photo2.jpg" alt="Foto 2" loading="lazy" class="gallery-image" data-index="1" data-astro-cid-ihllb3az><img src="/images/gallery/photo3.jpg" alt="Foto 3" loading="lazy" class="gallery-image" data-index="2" data-astro-cid-ihllb3az><img src="/images/gallery/photo1.jpg" alt="Foto 4" loading="lazy" class="gallery-image" data-index="3" data-astro-cid-ihllb3az><img src="/images/gallery/photo2.jpg" alt="Foto 5" loading="lazy" class="gallery-image" data-index="4" data-astro-cid-ihllb3az><img src="/images/gallery/photo3.jpg" alt="Foto 6" loading="lazy" class="gallery-image" data-index="5" data-astro-cid-ihllb3az><img src="/images/gallery/photo1.jpg" alt="Foto 7" loading="lazy" class="gallery-image" data-index="6" data-astro-cid-ihllb3az><img src="/images/gallery/photo2.jpg" alt="Foto 8" loading="lazy" class="gallery-image" data-index="7" data-astro-cid-ihllb3az><img src="/images/gallery/photo3.jpg" alt="Foto 9" loading="lazy" class="gallery-image" data-index="8" data-astro-cid-ihllb3az><img src="/images/gallery/photo1.jpg" alt="Foto 10" loading="lazy" class="gallery-image" data-index="9" data-astro-cid-ihllb3az><img src="/images/gallery/photo2.jpg" alt="Foto 11" loading="lazy" class="gallery-image" data-index="10" data-astro-cid-ihllb3az><img src="/images/gallery/photo3.jpg" alt="Foto 12" loading="lazy" class="gallery-image" data-index="11" data-astro-cid-ihllb3az> </div> </div> <button id="nextBtn" aria-label="Fotos siguientes" class="btn-carousel" data-astro-cid-ihllb3az>›</button> </section> <script is:browser>
+  window.addEventListener('DOMContentLoaded', () => {
+    const banner = document.querySelector('.banner');
+    if (!banner) return;
+
+    // Mostrar el banner después de 3 segundos iniciando transición
+    setTimeout(() => {
+      banner.style.display = 'block'; // mostrar bloque para que transiciones funcionen
+      // Forzar reflow para que la transición funcione en algunos navegadores
+      banner.offsetHeight;
+      banner.style.opacity = '0.5';
+      banner.style.transform = 'translateY(-5px)';
+    }, 6000);
+
+    // Completar la animación a opacidad 1 y transform translateY(0) a los 6 segundos
+    setTimeout(() => {
+      banner.style.opacity = '1';
+      banner.style.transform = 'translateY(0)';
+    }, 9000);
+
+    // Botón cerrar
+    const closeBtn = banner.querySelector('.banner-close');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', () => {
+        banner.style.opacity = '0';
+        banner.style.transform = 'translateY(-10px)';
+        setTimeout(() => {
+          banner.style.display = 'none';
+        }, 1000); // espera que termine transición para ocultar
+      });
+    }
+  });
+</script><div class="banner bg-yellow-50 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-100 shadow-md py-4 px-6 text-center rounded-lg transition-all relative" style="display:none; opacity:0; transform: translateY(-10px);"><button class="banner-close" aria-label="Cerrar banner">&times;</button><p class="text-lg font-semibold">
+🎉 Invitación digital + formulario automático por solo <strong class="text-yellow-700 dark:text-yellow-300">699.000 Gs</strong><span class="line-through ml-2 opacity-60">ANTES 1.398.000 Gs</span></p><p class="text-sm mt-1 italic">🔥 Promoción exclusiva por tiempo limitado. ¡Aprovechá ya!</p><a href="https://wa.me/5491160391002?text=Quiero%20mi%20invitacion%20digital%20con%20el%20descuento%20del%2050%25%20a%20solo%20699.000%20Gs" target="_blank" rel="noopener noreferrer" class="mt-2 inline-block bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded-full pulse-soft transition-all">
+¡Reservar ahora!
+</a></div> </main>  <script>
+  (() => {
+    const track = document.querySelector('.gallery-images-track');
+    const images = document.querySelectorAll('.gallery-image');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const wrapper = document.querySelector('.gallery-images-wrapper');
+
+    let currentIndex = 0;
+    let autoChangeInterval = null;
+    let autoChangeTimeout = null;
+    let isAutoChanging = false;
+    let visibleItems = 3;
+
+    function updateVisibleItems() {
+      visibleItems = window.innerWidth < 968 ? 1 : 3;
+    }
+
+    function updateCarousel() {
+      updateVisibleItems();
+      const item = images[0];
+      const gap = parseFloat(window.getComputedStyle(track).gap);
+      const itemWidth = item.offsetWidth + gap;
+      const maxIndex = Math.max(0, images.length - visibleItems);
+      
+      currentIndex = Math.min(Math.max(0, currentIndex), maxIndex);
+      
+      track.style.transition = 'transform 0.5s ease-in-out';
+      track.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+    }
+
+    function prevSlide() {
+      if (isAutoChanging) resetAutoChange();
+      currentIndex = Math.max(0, currentIndex - 1);
+      updateCarousel();
+    }
+
+    function nextSlide() {
+      if (isAutoChanging) resetAutoChange();
+      const maxIndex = Math.max(0, images.length - visibleItems);
+      currentIndex = Math.min(maxIndex, currentIndex + 1);
+      updateCarousel();
+    }
+
+    function startAutoRotation() {
+      isAutoChanging = true;
+      autoChangeInterval = setInterval(() => {
+        const maxIndex = Math.max(0, images.length - visibleItems);
+        currentIndex = currentIndex >= maxIndex ? 0 : currentIndex + 1;
+        updateCarousel();
+      }, 3000);
+    }
+
+    function startAutoChangeDelay() {
+      autoChangeTimeout = setTimeout(() => {
+        startAutoRotation();
+      }, 180000);
+    }
+
+    function resetAutoChange() {
+      clearInterval(autoChangeInterval);
+      clearTimeout(autoChangeTimeout);
+      isAutoChanging = false;
+      startAutoChangeDelay();
+    }
+
+    function handleResize() {
+      updateVisibleItems();
+      
+      if (window.innerWidth >= 968) {
+        images.forEach(img => {
+          img.style.width = '320px';
+          img.style.height = '380px';
+          img.style.objectFit = 'cover';
+        });
+      } else {
+        const wrapperWidth = window.innerWidth - 72 - 32; // 72px botones + 32px padding
+        images.forEach(img => {
+          img.style.width = `${wrapperWidth}px`;
+          img.style.height = 'auto';
+          img.style.objectFit = 'contain';
+        });
+      }
+      
+      updateCarousel();
+    }
+
+    prevBtn.addEventListener('click', prevSlide);
+    nextBtn.addEventListener('click', nextSlide);
+    window.addEventListener('resize', handleResize);
+
+    // Iniciar
+    handleResize();
+    startAutoChangeDelay();
+  })();
+</script> </main> <footer class="magic-footer" id="footer" data-astro-cid-ouamjn2i> <div class="footer-content" data-astro-cid-ouamjn2i> <div class="contact-developer" data-astro-cid-ouamjn2i> <a href="https://www.minainformatica.com/" target="_blank" aria-label="Mina Informática" class="logo-container" data-astro-cid-ouamjn2i> <img src="/images/gallery/favicon.png" alt="Logo Mina Informática" class="square-logo" loading="lazy" data-astro-cid-ouamjn2i> </a> <p class="contact-text" data-astro-cid-ouamjn2i>Desarrollador</p> <div class="developer-links" data-astro-cid-ouamjn2i> <a href="https://www.linkedin.com/in/jacquelina" target="_blank" class="social-link linkedin" aria-label="LinkedIn Jaquelina" data-astro-cid-ouamjn2i> <svg class="social-icon" viewBox="0 0 24 14" fill="currentColor" xmlns="http://www.w3.org/2000/svg" data-astro-cid-ouamjn2i> <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" data-astro-cid-ouamjn2i></path> </svg> </a> <a href="https://instagram.com/minainformatica" target="_blank" class="social-link instagram" aria-label="Instagram Mina Informática" data-astro-cid-ouamjn2i> <svg class="social-icon" viewBox="0 0 26 14" fill="currentColor" xmlns="http://www.w3.org/2000/svg" data-astro-cid-ouamjn2i> <path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3z" data-astro-cid-ouamjn2i></path> </svg> </a> </div> </div> </div> <p class="text-sm mt-4" data-astro-cid-ouamjn2i>
+© 2025 Mina Informática. Todos los derechos reservados.
+<br data-astro-cid-ouamjn2i> </p> </footer> <!-- Botón flotante --> <button id="scrollToTopBtn" aria-label="Volver arriba" data-astro-cid-ouamjn2i>
+⬆︎
+</button>  <script>
+    const scrollBtn = document.getElementById('scrollToTopBtn');
+    const footer = document.getElementById('footer');
+
+    window.addEventListener('scroll', () => {
+      const footerTop = footer.getBoundingClientRect().top;
+      const windowHeight = window.innerHeight;
+
+      if (footerTop < windowHeight) {
+        scrollBtn.classList.add('visible', 'solid');
+      } else if (window.scrollY > windowHeight / 2) {
+        scrollBtn.classList.add('visible');
+        scrollBtn.classList.remove('solid');
+      } else {
+        scrollBtn.classList.remove('visible', 'solid');
+      }
+    });
+
+    scrollBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script> </body> </html>
