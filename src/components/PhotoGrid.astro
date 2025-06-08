@@ -1,5 +1,5 @@
 ---
-// src/components/Gallery.astro
+// src/components/PhotoGrid.astro
 const images = [
   "/images/photo1.jpg",
   "/images/photo2.jpg",
@@ -50,7 +50,7 @@ const images = [
 <style>
   .gallery {
     padding: 2rem 1rem;
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;
     position: relative;
     background: rgba(240, 248, 255, 0.5);
@@ -82,15 +82,15 @@ const images = [
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto;
-    max-width: 700px;
+    max-width: 100%;
     width: 100%;
   }
 
   .carousel {
     position: relative;
     width: 100%;
-    height: 600px; /* Altura fija ajustable */
+    aspect-ratio: 4 / 3;
+    max-height: clamp(250px, 60vh, 600px);
     overflow: hidden;
     border-radius: 10px;
     box-shadow: 0 8px 25px rgba(135, 206, 235, 0.3);
@@ -120,13 +120,17 @@ const images = [
     box-shadow: 0 10px 30px rgba(70, 130, 180, 0.15);
     border: 1px solid #E6F7FF;
     box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .gallery-image {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* Cambiado de 'cover' a 'contain' */
+    object-fit: contain;
     display: block;
+    border-radius: 4px;
   }
 
   .frame-overlay {
@@ -138,6 +142,7 @@ const images = [
     border: 2px solid rgba(173, 216, 230, 0.5);
     pointer-events: none;
     box-sizing: border-box;
+    border-radius: 4px;
   }
 
   .nav-button {
@@ -180,6 +185,7 @@ const images = [
     justify-content: center;
     gap: 10px;
     margin-top: 1.5rem;
+    flex-wrap: wrap;
   }
 
   .dot {
@@ -197,22 +203,32 @@ const images = [
     transform: scale(1.3);
   }
 
-  @media (max-width: 600px) {
-    .carousel {
-      height: 300px;
-    }
-    
+  @media (max-width: 768px) {
     .gallery-title {
       font-size: 1.6rem;
     }
-    
+
     .nav-button {
-      width: 35px;
-      height: 35px;
+      width: 36px;
+      height: 36px;
     }
-    
+
     .elegant-frame {
-      padding: 5px;
+      padding: 6px;
+    }
+
+    .gallery-image {
+      object-fit: cover;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .gallery-title {
+      font-size: 1.4rem;
+    }
+
+    .carousel {
+      aspect-ratio: 1 / 1;
     }
   }
 </style>
@@ -264,14 +280,6 @@ const images = [
   }
 
   document.addEventListener('DOMContentLoaded', () => {
-    // Ajustar tamaño de las imágenes al cargar
-    const images = document.querySelectorAll('.gallery-image');
-    images.forEach(img => {
-      img.style.width = '100%';
-      img.style.height = '100%';
-      img.style.objectFit = 'contain';
-    });
-    
     startAutoScroll();
     
     const carousel = document.querySelector('.carousel-container');

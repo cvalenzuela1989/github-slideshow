@@ -1,17 +1,18 @@
 ---
-const birthday = new Date('2025-06-07T00:00:00'); // Hora fija para evitar errores por zona horaria
+const birthday = new Date('2025-06-07T00:00:00'); // Fecha objetivo
 const today = new Date();
-today.setHours(0, 0, 0, 0); // Normaliza para comparar correctamente
+today.setHours(0, 0, 0, 0); // Normaliza hora
+
 const diffTime = birthday.getTime() - today.getTime();
-const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+const diffDays = Math.max(0, Math.ceil(diffTime / (1000 * 60 * 60 * 24))); // Nunca negativo
 const isBirthday = diffDays === 0;
 ---
 
 <div class="days-counter">
   <div class="counter-container">
-    <h3 class="counter-text">Faltan solo</h3>
-    <div class="number">{diffDays}</div>
-    <h3 class="counter-text">días para mi fiesta</h3>
+    <h3 class="counter-text">Falta solo</h3>
+    <div class="number" id="days-number">{diffDays}</div>
+    <h3 class="counter-text">día para mi fiesta</h3>
   </div>
 </div>
 
@@ -22,53 +23,39 @@ const isBirthday = diffDays === 0;
 <script type="module">
   import confetti from 'https://cdn.skypack.dev/canvas-confetti';
 
-  const birthday = new Date('2025-06-07T00:00:00');
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-  const diffTime = birthday.getTime() - today.getTime();
-  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-  const isBirthday = diffDays === 0;
-
-  // Inserta dinámicamente el número de días en la página
   document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('days-number').textContent = diffDays;
+    const diff = parseInt(document.getElementById('days-number')?.textContent || '0');
 
-    if (isBirthday) {
+    if (diff === 0) {
       const canvas = document.getElementById('fireworks-canvas');
-      const myConfetti = confetti.create(canvas, { resize: true, useWorker: true });
+      if (!canvas) return;
 
-      const duration = 6000;
-      const animationEnd = Date.now() + duration;
+      const myConfetti = confetti.create(canvas, {
+        resize: true,
+        useWorker: true
+      });
+
+      const duration = 5000;
+      const end = Date.now() + duration;
 
       (function frame() {
         myConfetti({
-          particleCount: 5,
-          spread: 70,
-          startVelocity: 20,
-          ticks: 150,
-          origin: {
-            x: Math.random(),
-            y: Math.random() * 0.8,
-          },
-          colors: ['#ff0', '#0f0', '#00f', '#f0f'],
-          shapes: ['circle'],
+          particleCount: 8,
+          spread: 80,
+          startVelocity: 30,
+          origin: { x: Math.random(), y: Math.random() * 0.6 },
+          colors: ['#ff0', '#0f0', '#00f', '#f0f', '#fff'],
           scalar: 1.5,
+          ticks: 200
         });
 
-        if (Date.now() < animationEnd) {
+        if (Date.now() < end) {
           requestAnimationFrame(frame);
         }
       })();
-    } else {
-      // Oculta el canvas si no es el día
-      document.getElementById('fireworks-canvas').style.display = 'none';
     }
   });
 </script>
-
-
-<canvas id="fireworks-canvas" class="fireworks-canvas"></canvas>
-
 
 <style>
   .days-counter {
@@ -115,9 +102,11 @@ const isBirthday = diffDays === 0;
     .days-counter {
       padding: 3rem 1rem;
     }
+
     .number {
       font-size: 5rem;
     }
+
     .counter-text {
       font-size: 1.5rem;
     }
